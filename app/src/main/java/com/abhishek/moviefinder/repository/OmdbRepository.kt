@@ -6,15 +6,15 @@ import io.reactivex.schedulers.Schedulers
 class OmdbRepository(private val api: OmdbApi) {
     fun searchMovie(query: String): Single<Result<List<MovieLite>>> {
         return api.searchMovie(query)
-            .map { Result(true, it.results) }
-            .onErrorReturnItem(Result(false, null))
+            .map { Result(it.results) }
+            .onErrorReturnItem(Result(null))
             .subscribeOn(Schedulers.io())
     }
 
     fun getMovieDetails(id: String): Single<Result<Movie>> {
         return api.getMovieDetails(id)
-            .map { Result(true, it) }
-            .onErrorReturnItem(Result(false, null))
+            .map { Result(it) }
+            .onErrorReturnItem(Result(null))
             .subscribeOn(Schedulers.io())
     }
 }

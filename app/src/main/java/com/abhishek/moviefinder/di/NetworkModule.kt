@@ -14,7 +14,7 @@ class NetworkModule {
     @Provides
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://www.omdbapi.com")
+            .baseUrl("https://www.omdbapi.com")
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()

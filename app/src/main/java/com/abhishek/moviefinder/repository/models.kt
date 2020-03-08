@@ -26,7 +26,8 @@ class Movie(
     @Json(name = "Poster")val poster: String
 )
 
-class Result<T>(
-    val isSuccess: Boolean,
-    val result: T?
-)
+/**
+ * Generic result wrapper
+ * @param result Result of the method. Set to null if method fails
+ */
+class Result<T>(val result: T? = null)
