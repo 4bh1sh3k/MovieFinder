@@ -15,7 +15,7 @@ fun setVisibility(view: View, visible: Boolean) {
 }
 
 @BindingAdapter("imageUrl")
-fun setImage(view: ImageView, url: String) {
+fun setImage(view: ImageView, url: String?) {
     Glide.with(view)
         .load(url)
         .into(view)

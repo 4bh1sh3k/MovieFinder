@@ -1,6 +1,7 @@
 package com.abhishek.moviefinder.view.main
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.abhishek.moviefinder.R
 import com.abhishek.moviefinder.databinding.ActivityMainBinding
 import com.abhishek.moviefinder.databinding.ItemMovieBinding
+import com.abhishek.moviefinder.view.details.DetailsActivity
+import com.abhishek.moviefinder.view.details.EXTRA_ID
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.AndroidInjection
 import io.reactivex.disposables.CompositeDisposable
@@ -44,12 +47,25 @@ class MainActivity : AppCompatActivity() {
                 (getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager)
                     .hideSoftInputFromWindow(binding.root.windowToken, 0)
             MainViewModel.Event.OnError ->
-                Snackbar.make(binding.root, "Something went wrong", Snackbar.LENGTH_LONG)
+                Snackbar.make(binding.root, getString(R.string.label_error), Snackbar.LENGTH_LONG)
+                    .show()
+            MainViewModel.Event.OnNoResult ->
+                Snackbar.make(binding.root, getString(R.string.label_no_result), Snackbar.LENGTH_LONG)
                     .show()
             is MainViewModel.Event.OnMovieClicked -> {
-                Snackbar.make(binding.root, "Clicked a movie", Snackbar.LENGTH_LONG).show()
+                startActivity(
+                    Intent(this, DetailsActivity::class.java)
+                        .apply {
+                            putExtra(EXTRA_ID, event.id)
+                        }
+                )
             }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        disposables.clear()
     }
 }
 

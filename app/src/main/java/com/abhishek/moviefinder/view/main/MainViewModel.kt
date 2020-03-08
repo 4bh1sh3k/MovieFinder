@@ -22,7 +22,7 @@ class MainViewModel @Inject constructor(
     private val events = PublishSubject.create<Event>()
     fun getEvents() = events.hide()
 
-    val loading = ObservableBoolean()
+    val loading = ObservableBoolean(false)
     val items = ObservableArrayList<ItemViewModel>()
 
     fun onSearch(query: CharSequence, actionId: Int): Boolean {
@@ -39,20 +39,17 @@ class MainViewModel @Inject constructor(
         loading.set(true)
         disposables += repository.searchMovie(query)
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribeBy { handleResult(it.result) }
+            .subscribeBy {
+                loading.set(false)
+                handleResult(it.result)
+            }
     }
 
     private fun handleResult(result: List<MovieLite>?) {
-        loading.set(false)
         when {
             result == null -> events.onNext(Event.OnError)
             result.isEmpty() -> events.onNext(Event.OnNoResult)
-            else -> items.addAll(result.map {
-                ItemViewModel(
-                    it,
-                    events
-                )
-            })
+            else -> items.addAll(result.map { ItemViewModel(it, events) })
         }
     }
 
