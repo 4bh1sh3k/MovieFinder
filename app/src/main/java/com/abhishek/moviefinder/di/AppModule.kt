@@ -8,5 +8,5 @@ import dagger.Provides
 class AppModule(private val context: Context) {
 
     @Provides
-    fun providesResources() = context.resources
+    fun providesContext() = context
 }

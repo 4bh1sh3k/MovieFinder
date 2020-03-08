@@ -86,4 +86,9 @@ dependencies {
 
     // design
     implementation "com.google.android.material:material:$version_design"
+
+    // room
+    implementation "androidx.room:room-runtime:$version_room"
+    implementation "androidx.room:room-rxjava2:$version_room"
+    kapt "androidx.room:room-compiler:$version_room"
 }

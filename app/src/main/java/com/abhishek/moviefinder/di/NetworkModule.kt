@@ -1,5 +1,6 @@
 package com.abhishek.moviefinder.di
 
+import com.abhishek.moviefinder.repository.FavoriteDatabase
 import com.abhishek.moviefinder.repository.OmdbApi
 import com.abhishek.moviefinder.repository.OmdbRepository
 import dagger.Module
@@ -26,7 +27,7 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideOmdbRepository(api: OmdbApi): OmdbRepository {
-        return OmdbRepository(api)
+    fun provideOmdbRepository(api: OmdbApi, database: FavoriteDatabase): OmdbRepository {
+        return OmdbRepository(api, database)
     }
 }

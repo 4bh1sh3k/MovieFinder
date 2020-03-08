@@ -1,13 +1,19 @@
 package com.abhishek.moviefinder.view.main
 
 import com.abhishek.moviefinder.repository.MovieLite
+import com.abhishek.moviefinder.repository.MovieLiteExt
 import io.reactivex.subjects.Subject
 
 class ItemViewModel(
-    val movie: MovieLite,
-    private val events: Subject<MainViewModel.Event>
+    val movie: MovieLiteExt,
+    private val onAddFavorite: (MovieLite) -> Unit,
+    private val onMovieClick: (String) -> Unit
 ) {
+    fun onAddClick() {
+        onAddFavorite(movie.movieLite)
+    }
+
     fun onClick() {
-        events.onNext(MainViewModel.Event.OnMovieClicked(movie.id))
+        onMovieClick(movie.movieLite.id)
     }
 }
