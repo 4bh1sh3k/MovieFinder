@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -34,4 +35,19 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    // rxjava
+    implementation "io.reactivex.rxjava2:rxjava:$version_rxjava2"
+    implementation "io.reactivex.rxjava2:rxandroid:$version_rxandroid"
+    implementation "io.reactivex.rxjava2:rxandroid:$version_rxandroid"
+    implementation "io.reactivex.rxjava2:rxkotlin:$version_rxkotlin"
+
+    // moshi
+    implementation "com.squareup.moshi:moshi:$version_moshi"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$version_moshi"
+
+    // retrofit
+    implementation "com.squareup.retrofit2:retrofit:$version_retrofit"
+    implementation "com.squareup.retrofit2:converter-moshi:$version_retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$version_retrofit"
 }
