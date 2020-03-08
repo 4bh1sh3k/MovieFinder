@@ -1,7 +1,8 @@
-package com.abhishek.moviefinder
+package com.abhishek.moviefinder.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.abhishek.moviefinder.R
 
 class MainActivity : AppCompatActivity() {
 
