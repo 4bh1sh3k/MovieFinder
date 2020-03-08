@@ -1,9 +1,9 @@
-package com.abhishek.moviefinder.view
+package com.abhishek.moviefinder.view.main
 
 import com.abhishek.moviefinder.repository.MovieLite
 import io.reactivex.subjects.Subject
 
-class MovieItemViewModel(
+class ItemViewModel(
     val movie: MovieLite,
     private val events: Subject<MainViewModel.Event>
 ) {

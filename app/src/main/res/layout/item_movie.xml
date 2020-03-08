@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.abhishek.moviefinder.view.MovieItemViewModel" />
+            type="com.abhishek.moviefinder.view.main.ItemViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

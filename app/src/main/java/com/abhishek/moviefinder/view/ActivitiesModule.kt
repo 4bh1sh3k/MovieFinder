@@ -1,5 +1,7 @@
 package com.abhishek.moviefinder.view
 
+import com.abhishek.moviefinder.view.details.DetailsActivity
+import com.abhishek.moviefinder.view.main.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -7,4 +9,7 @@ import dagger.android.ContributesAndroidInjector
 interface ActivitiesModule {
     @ContributesAndroidInjector
     fun contributeMainActivity(): MainActivity
+
+    @ContributesAndroidInjector
+    fun contributeDetailsActivity(): DetailsActivity
 }

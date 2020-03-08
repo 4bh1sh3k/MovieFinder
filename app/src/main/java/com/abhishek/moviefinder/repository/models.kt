@@ -19,11 +19,11 @@ class SearchResponse(
 
 @JsonClass(generateAdapter = true)
 class Movie(
-    @Json(name = "Title")val title: String,
-    @Json(name = "Director")val director: String,
-    @Json(name = "Year")val year: String,
-    @Json(name = "Plot")val summary: String,
-    @Json(name = "Poster")val poster: String
+    @Json(name = "Title") val title: String,
+    @Json(name = "Director") val director: String,
+    @Json(name = "Year") val year: String,
+    @Json(name = "Plot") val summary: String,
+    @Json(name = "Poster") val poster: String
 )
 
 /**
