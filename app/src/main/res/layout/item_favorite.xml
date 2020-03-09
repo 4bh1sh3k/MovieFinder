@@ -31,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
 
-        <TextView
+        <TextView android:textColor="?attr/colorSecondary"
             android:id="@+id/text_title"
             android:layout_width="@dimen/match_constraint"
             android:layout_height="wrap_content"

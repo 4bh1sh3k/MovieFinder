@@ -37,8 +37,8 @@
                     app:imageUrl="@{viewModel.movie.poster}"
                     tools:src="@tools:sample/avatars" />
 
-                <!-- director, year plot -->
                 <TextView
+                    android:textColor="?attr/colorSecondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_regular"
