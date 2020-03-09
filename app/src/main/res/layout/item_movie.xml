@@ -68,7 +68,21 @@
             android:text="@string/label_add"
             app:isVisible="@{!viewModel.movie.favorite}"
             app:layout_constraintStart_toEndOf="@id/image_poster"
-            app:layout_constraintTop_toBottomOf="@id/text_year" />
+            app:layout_constraintTop_toBottomOf="@id/text_year"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/label_added"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_regular"
+            android:text="@string/label_added"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="?attr/colorSecondary"
+            app:isVisible="@{viewModel.movie.favorite}"
+            app:layout_constraintStart_toEndOf="@id/image_poster"
+            app:layout_constraintTop_toBottomOf="@id/text_year"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
