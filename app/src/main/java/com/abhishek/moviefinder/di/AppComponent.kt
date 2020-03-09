@@ -1,7 +1,7 @@
 package com.abhishek.moviefinder.di
 
 import com.abhishek.moviefinder.MovieFinderApplication
-import com.abhishek.moviefinder.view.ActivitiesModule
+import com.abhishek.moviefinder.view.UiModule
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
@@ -13,7 +13,7 @@ import javax.inject.Singleton
         AppModule::class,
         NetworkModule::class,
         DatabaseModule::class,
-        ActivitiesModule::class
+        UiModule::class
     ]
 )
 interface AppComponent {

@@ -5,8 +5,10 @@ import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ObservableList
 import androidx.recyclerview.widget.RecyclerView
-import com.abhishek.moviefinder.view.main.ItemViewModel
+import com.abhishek.moviefinder.view.main.FavoriteItemAdapter
+import com.abhishek.moviefinder.view.main.FavoriteItemViewModel
 import com.abhishek.moviefinder.view.main.MovieItemAdapter
+import com.abhishek.moviefinder.view.main.SearchItemViewModel
 import com.bumptech.glide.Glide
 
 @BindingAdapter("isVisible")
@@ -21,7 +23,15 @@ fun setImage(view: ImageView, url: String?) {
         .into(view)
 }
 
+// It may be possible to make the recycler view adapters generic
+// and avoid two separate recycler view adapters and binding adapters
+
 @BindingAdapter("movieItems")
-fun setMovieItems(view: RecyclerView, items: ObservableList<ItemViewModel>) {
+fun setMovieItems(view: RecyclerView, items: ObservableList<SearchItemViewModel>) {
     view.adapter = MovieItemAdapter(items)
+}
+
+@BindingAdapter("favoriteItems")
+fun setFavoriteItems(view: RecyclerView, items: ObservableList<FavoriteItemViewModel>) {
+    view.adapter = FavoriteItemAdapter(items)
 }

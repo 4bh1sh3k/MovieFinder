@@ -4,7 +4,7 @@ import com.abhishek.moviefinder.repository.MovieLite
 import com.abhishek.moviefinder.repository.MovieLiteExt
 import io.reactivex.subjects.Subject
 
-class ItemViewModel(
+class SearchItemViewModel(
     val movie: MovieLiteExt,
     private val onAddFavorite: (MovieLite) -> Unit,
     private val onMovieClick: (String) -> Unit

@@ -17,7 +17,7 @@ import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor(
+class SearchViewModel @Inject constructor(
     private val repository: OmdbRepository,
     private val database: FavoriteDatabase
 ) : DefaultLifecycleObserver {
@@ -27,7 +27,7 @@ class MainViewModel @Inject constructor(
     fun getEvents() = events.hide()
 
     val loading = ObservableBoolean(false)
-    val items = ObservableArrayList<ItemViewModel>()
+    val items = ObservableArrayList<SearchItemViewModel>()
 
     fun onSearch(query: CharSequence, actionId: Int): Boolean {
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
@@ -53,7 +53,13 @@ class MainViewModel @Inject constructor(
         when {
             result == null -> events.onNext(Event.OnError)
             result.isEmpty() -> events.onNext(Event.OnNoResult)
-            else -> items.addAll(result.map { ItemViewModel(it, ::onAddFavorite, ::onMovieClick) })
+            else -> items.addAll(result.map {
+                SearchItemViewModel(
+                    it,
+                    ::onAddFavorite,
+                    ::onMovieClick
+                )
+            })
         }
     }
 
