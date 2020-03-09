@@ -11,7 +11,7 @@ class OmdbRepository(
 ) {
     fun searchMovie(query: String): Observable<Result<List<MovieLiteExt>>> {
         return Observable.combineLatest(
-                api.searchMovie(query),
+                api.searchMovie(query).toObservable(),
                 database.favoriteDao().getFavorites(),
                 BiFunction { apiResult: SearchResponse, favorites: List<MovieLite> ->
                     apiResult.results.map {

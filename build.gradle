@@ -15,6 +15,7 @@ buildscript {
         version_recyclerview = '1.1.0'
         version_glide = '4.11.0'
         version_room = '2.2.4'
+        version_mockk = '1.9.3'
     }
     repositories {
         google()

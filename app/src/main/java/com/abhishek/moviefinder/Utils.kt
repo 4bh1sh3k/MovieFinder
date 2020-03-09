@@ -23,9 +23,6 @@ fun setImage(view: ImageView, url: String?) {
         .into(view)
 }
 
-// It may be possible to make the recycler view adapters generic
-// and avoid two separate recycler view adapters and binding adapters
-
 @BindingAdapter("movieItems")
 fun setMovieItems(view: RecyclerView, items: ObservableList<SearchItemViewModel>) {
     view.adapter = MovieItemAdapter(items)

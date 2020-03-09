@@ -9,7 +9,8 @@ import javax.inject.Singleton
 
 @Module
 class DatabaseModule {
-    @Provides @Singleton
+    @Provides
+    @Singleton
     fun provideDatabase(context: Context): FavoriteDatabase {
         return Room.databaseBuilder(context, FavoriteDatabase::class.java, "favorites").build()
     }
