@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="match_constraint">0dp</dimen>
+    <dimen name="item_poster_width">80dp</dimen>
+    <dimen name="details_banner_width">250dp</dimen>
+    <dimen name="margin_regular">16dp</dimen>
+</resources>

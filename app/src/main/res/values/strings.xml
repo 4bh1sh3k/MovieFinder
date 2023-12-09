@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Movie Finder</string>
+    <string name="label_hint">Search for a movie</string>
+    <string name="label_add">Add as favorite</string>
+    <string name="label_added">Added to favorites</string>
+    <string name="label_no_result">We couldn\'t find that movie. Please try another movie.</string>
+    <string name="label_error">We\'re unable to search for a movie right now. Please try later.</string>
+    <string name="title_details">Details</string>
+    <string name="label_directed_by">Directed by: %s</string>
+    <string name="label_no_details">We\'re unable to find details for this movie right now. Please try later.</string>
+</resources>
